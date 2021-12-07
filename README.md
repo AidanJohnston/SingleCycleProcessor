@@ -18,7 +18,7 @@ however the second byte is unused. The first byte holds the opcode to define the
 Mnemonic  | Op-Code  | Function
 :-------:|:-------:|:-------:
 NOP | 0 | Nothing
-ADD | 1 | $R[ra] ← R[ra] + R[rb];$ <br> $((R[ra] + R[rb]) = 0) ⇒ Z ← 1; else ⇒ Z  ← 0;$ <br> $((R[ra] + R[rb]) < 0) ⇒ N ← 1; else ⇒ N ← 0;$
+ADD | 1 | R[ra] ← R[ra] + R[rb]; <br> $((R[ra] + R[rb]) = 0) ⇒ Z ← 1; else ⇒ Z  ← 0;$ <br> $((R[ra] + R[rb]) < 0) ⇒ N ← 1; else ⇒ N ← 0;$
 SUB | 2 | $R[ra] ← R[ra] − R[rb];$ <br> $((R[ra] − R[rb]) = 0) ⇒ Z ← 1; else ⇒ Z ← 0;$ <br> $((R[ra] − R[rb]) < 0) ⇒ N ← 1; else ⇒ N ← 0;$ 
 NAND | 3| 
 
@@ -27,7 +27,23 @@ NAND | 3|
 ## B-Format
 ## L-Format
 # Implementation
+To build our processor, we used the provided instruction set to guide our design and select the
+main components needed for our design. Before coding our modules for each component, we
+needed to determine the data paths for each instruction format which are shown below.
 ## A-Format Data Path
+<img src='img/image30.png'></img>
+*Figure 4: ADD, SUB, NAND Data Path*
+
+
+<img src='img/image40.png'></img>
+*Figure 5: SHL and SHR Data Path*
+
+<img src='img/image43.png'></img>
+*Figure 5: OUT Data Path*
+
+<img src='img/image35.png'></img>
+*Figure 5: IN Data Path*
+
 ## B-Format Data Path
 ## L-Format Data Path
 # Components
