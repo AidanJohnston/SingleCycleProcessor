@@ -1,0 +1,42 @@
+/*
+	CPU_TESTBENCH.V
+
+	CONTRIBUTION: AIDAN, SEAN, FATIMA
+
+*/
+
+`timescale 1 ps/ 1 ps
+module CPU_TestBench();
+
+reg			clock;
+reg [7:0] 	inPort;
+reg 			reset;
+
+wire [7:0]	outPort;
+
+CPU cpu(
+	.clock(clock),
+	.reset(reset),
+	.inPort(inPort),
+	.outPort(outPort));
+	
+	
+initial begin
+
+	$display("Running TestBench");
+	
+	clock = 0;
+	reset = 0;
+	inPort = 4'hF;
+	
+	#20;
+	
+	forever begin
+		#10 clock = ~clock;
+	end
+
+end
+
+endmodule
+
+
