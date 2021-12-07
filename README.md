@@ -20,14 +20,52 @@ however the second byte is unused. The first byte holds the opcode to define the
 Mnemonic  | Op-Code  | Function
 :-------:|:-------:|:-------:
 NOP | 0 | Nothing
-ADD | 1 | R[ra] ← R[ra] + R[rb]; <br> $((R[ra] + R[rb]) = 0) ⇒ Z ← 1; else ⇒ Z  ← 0;$ <br> $((R[ra] + R[rb]) < 0) ⇒ N ← 1; else ⇒ N ← 0;$
-SUB | 2 | $R[ra] ← R[ra] − R[rb];$ <br> $((R[ra] − R[rb]) = 0) ⇒ Z ← 1; else ⇒ Z ← 0;$ <br> $((R[ra] − R[rb]) < 0) ⇒ N ← 1; else ⇒ N ← 0;$ 
-NAND | 3| 
+ADD | 1 | <img src='img/image2.png'><br><img src='img/image3.png'><br><img src='img/image4.png'>
+SUB | 2| <img src='img/image5.png'><br><img src='img/image6.png'><br><img src='img/image7.png'>
+NAND | 3| <img src='img/image8.png'><br><img src='img/image9.png'><br><img src='img/image10.png'>
+SHL | 4| <img src='img/image11.png'><br><img src='img/image12.png'>
+SHR | 5| <img src='img/image13.png'><br><img src='img/image14.png'>
+OUT | 6| <img src='img/image15.png'>
+IN | 7| <img src='img/image16.png'>
+MOV |8| <img src='img/image17.png'>
 
 *Table 1: A-Format Instructions*
 
+<img src='img/AFormat.png'>
+
+*Figure 1: A-Format Instructions*
+
 ## B-Format
+B-format is used for branch instructions. Instructions are two bytes, the first three bits of the first byte are ignored, followed by a 1-bit identifier for differentiating between brz and brn instructions then followed by the opcode. The second byte contains the effective address if there is a branch. There are five B-format instructions shown below:
+
+Mnemonic  | Op-Code  | Function
+:-------:|:-------:|:-------:
+BR |9| <img src='img/image18.png'>
+BR.Z |10| <img src='img/image19.png'><br><img src='img/image20.png'>
+BR.N |10| <img src='img/image21.png'><br><img src='img/image22.png'>
+BR.SUB |11| <img src='img/image23.png'><br><img src='img/image18.png'>
+RETURN |12| <img src='img/image24.png'>
+
+*Table 2: B-Format Instructions*
+
+<img src='img/BFormat.png'>
+
+*Figure 2: B-Format Instructions*
 ## L-Format
+L-format is used for load and store instructions. Instructions are two bytes, the first byte has two unused bits followed by register operand ra, then the opcode. The second byte holds the effective address or an immediate value. There are three L-format  instructions shown below:
+
+Mnemonic  | Op-Code  | Function
+:-------:|:-------:|:-------:
+LOAD |13| <img src='img/image25.png'>
+STORE |14| <img src='img/image26.png'>
+LOADIMM |15| <img src='img/image27.png'>
+
+*Table 3: L-Format Instructions*
+
+<img src='img/LFormat.png'>
+
+*Figure 2: L-Format Instructions*
+
 # Implementation
 To build our processor, we used the provided instruction set to guide our design and select the
 main components needed for our design. Before coding our modules for each component, we
@@ -50,12 +88,36 @@ needed to determine the data paths for each instruction format which are shown b
 *Figure 8: MOV Data Path*
 
 ## B-Format Data Path
+<img src='img/image39.png'></img>
+*Figure 9: BR, BRZ, BRN Data Path*
+
+<img src='img/image31.png'></img>
+*Figure 10: BR_SUB Data Path*
+
+<img src='img/image33.png'></img>
+*Figure 11: RETURN Data Path*
+
 ## L-Format Data Path
+
+<img src='img/image44.png'></img>
+*Figure 12: LOAD Data Path*
+
+<img src='img/image46.png'></img>
+*Figure 13: STORE Data Path*
+
+<img src='img/image45.png'></img>
+*Figure 13: LOADIMM Data Path*
+
 # Components
 ## Single Cycle Processor
 <img src='img/image29.png'></img>
-
 *Figure 15: Full Single Cycle Processor Diagram*
+
+
+
+
+
+
 
 ## Instruction Memory
 The purpose of the Instruction Memory module is to, given an address, lookup its value
