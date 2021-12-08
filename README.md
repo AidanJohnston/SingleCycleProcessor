@@ -157,6 +157,7 @@ The control module is responsible for setting certain flags on or off.  These fl
 | **STORE** | 1110 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 
 | **LOADIMM** | 1111 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
 
+
 *Table 4: Control Module Truth Table*
 
 ## Registers
